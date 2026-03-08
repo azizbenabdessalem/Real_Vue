@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+
+<!-- component avec v-model -->
+<custom-input v-model="inputValue"></custom-input>
+
+<p>Entered Value: {{ inputValue }}</p>
+
+</div>
+
+<script>
+
+// component
+const CustomInput = {
+  props: ['modelValue'],
+  template: `
+    <div>
+      <input :value="modelValue" @input="updateValue($event)">
+    </div>
+  `,
+  methods:{
+    updateValue(event){
+      this.$emit('update:modelValue', event.target.value)
+    }
+  }
+}
+
+// app
+const app = Vue.createApp({
+  data(){
+    return{
+      inputValue: ""
+    }
+  }
+})
+
+app.component("custom-input", CustomInput)
+
+app.mount("#app")
+
+</script>
+
+</body>
+</html>
