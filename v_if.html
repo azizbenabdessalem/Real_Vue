@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+
+<p v-if="age > 18">Adult</p>
+<p v-else-if="age == 18">Just 18</p>
+<p v-else>Minor</p>
+
+<button @click="age++">Increase age</button>
+
+</div>
+
+<script>
+Vue.createApp({
+  data(){
+    return{
+      age:16
+    }
+  }
+}).mount("#app")
+</script>
+
+</body>
+</html>
