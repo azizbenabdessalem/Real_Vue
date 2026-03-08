@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Async Component</title>
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+
+<div id="app">
+  <my-component></my-component>
+</div>
+
+<script>
+
+// async component
+const MyComponent = Vue.defineAsyncComponent(() =>             ou const Mycomponent =() => import("./Asyscompionent.vue') 
+  Promise.resolve({
+    template: `<h2>Hello Async Component</h2>`
+  })
+)
+
+// créer app
+const app = Vue.createApp({})
+
+// enregistrer component
+app.component("my-component", MyComponent)
+
+// charger la page
+app.mount("#app")
+
+</script>
+
+</body>
+</html>
