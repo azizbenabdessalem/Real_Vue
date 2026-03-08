@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+  <user-card name="Ali"></user-card>
+</div>
+
+<script>
+
+const UserCard = {
+  props: ["name"],               Ici, props accepte  la valeur name qui a été envoyé par le parent 
+  template: `<p>Hello {{ name }}</p>`
+}
+
+const app = Vue.createApp({})
+
+app.component("user-card", UserCard)
+
+app.mount("#app")
+
+</script>
+
+</body>
+</html>
