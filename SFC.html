@@ -1,0 +1,27 @@
+<template>
+  <div>
+    <h2>{{ message }}</h2>
+    <button @click="changeMessage">Change</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return{
+      message: "Hello SFC"
+    }
+  },
+  methods:{
+    changeMessage(){
+      this.message = "Message changed"
+    }
+  }
+}
+</script>
+
+<style>
+h2{
+  color: blue;
+}
+</style>
