@@ -1,0 +1,8 @@
+import Vue from 'vue'                  On importe la bibliothèque Vue. 
+import App from './App.vue'            import App from './App.vue'
+import router from './router'          Le router sert à gérer les pages :
+
+new Vue({
+  render: h => h(App),
+  router
+}).$mount('#app')
