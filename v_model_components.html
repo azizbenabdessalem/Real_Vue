@@ -21,7 +21,7 @@ const CustomInput = {
   props: ['modelValue'],
   template: `
     <div>
-      <input :value="modelValue" @input="updateValue($event)">
+      <input v-bind:value="modelValue" @input="updateValue($event)">
     </div>
   `,
   methods:{
