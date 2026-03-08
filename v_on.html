@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+  <p>{{ count }}</p>
+
+  <button v-on:click="increase">Click</button>
+</div>
+
+<script>
+Vue.createApp({
+  data(){
+    return{
+      count:0
+    }
+  },
+  methods:{
+    increase(){
+      this.count++
+    }
+  }
+}).mount("#app")
+</script>
+
+</body>
+</html>
