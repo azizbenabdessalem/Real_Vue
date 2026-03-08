@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+  <a v-bind:href="link">Go to Google</a>    // il peut lier aussi avec source et plein d'autre attributs
+</div>
+
+<script>
+Vue.createApp({
+  data(){
+    return{
+      link:"https://google.com"
+    }
+  }
+}).mount("#app")
+</script>
+
+</body>
+</html>
