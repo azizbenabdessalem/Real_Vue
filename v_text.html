@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+  <p v-text="user.name"></p>
+  <p v-text="user.age"></p>
+  <p v-text="status"></p>
+  <p v-text="birthYear"></p>
+
+  <button @click="update(20)">Update</button>
+</div>
+
+<script>
+Vue.createApp({
+  data(){
+    return{
+      user:{ name:"Ali", age:17 }
+    }
+  },
+  methods:{
+    update(newAge){
+      this.user.age = newAge
+    }
+  },
+  computed:{
+    status(){
+      return this.user.age > 18 ? "adult" : "minor"
+    },
+    birthYear(){
+      return new Date().getFullYear() - this.user.age
+    }
+  }
+}).mount("#app")
+</script>
+
+</body>
+</html>
