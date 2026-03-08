@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+  <my-button @hello="sayHello"></my-button>
+</div>
+
+<script>
+
+const MyButton = {
+  template: `<button @click="$emit('hello')">Click me</button>`            En gros, ici quand on clique sur le bouton, on envoie un event qui s'appelle hello . Cette event 
+  va aller dans le parent aveec @hello, qui va appeler par la suite sayhello
+}
+
+const app = Vue.createApp({
+  methods:{
+    sayHello(){
+      alert("Hello event received")
+    }
+  }
+})
+
+app.component("my-button", MyButton)
+
+app.mount("#app")
+
+</script>
+
+</body>
+</html>
