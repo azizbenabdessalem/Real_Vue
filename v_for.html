@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+
+<ul>
+  <li v-for="name in names">{{ name }}</li>
+</ul>
+
+</div>
+
+<script>
+Vue.createApp({
+  data(){
+    return{
+      names:["Ali","Sara","John"]
+    }
+  }
+}).mount("#app")
+</script>
+
+</body>
+</html>
