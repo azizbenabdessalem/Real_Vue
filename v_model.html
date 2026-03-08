@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+
+<input type="text" v-model="name">
+<p>{{ name }}</p>
+
+</div>
+
+<script>
+Vue.createApp({
+  data(){
+    return{
+      name:"Ali"
+    }
+  }
+}).mount("#app")
+</script>
+
+</body>
+</html>
