@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Example</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <h2>{{ user.name }}</h2>
+  <p>Age: {{ user.age }}</p>
+  <p>Status: {{ status }}</p>
+  <p>Birth Year: {{ birthYear }}</p>
+
+  <button @click="update(22)">Update Age</button>
+</div>
+
+<script>
+const app = Vue.createApp({
+  data() {
+    return {
+      user: {
+        name: "John",
+        age: 16
+      }
+    }
+  },
+
+  methods: {
+    update(newAge) {
+      this.user.age = newAge
+    }
+  },
+
+  computed: {
+    status() {
+      return this.user.age > 18 ? "adult" : "minor"
+    },
+
+    birthYear() {
+      return new Date().getFullYear() - this.user.age
+    }
+  }
+})
+
+app.mount("#app")
+</script>
+
+</body>
+
+  </html>
+ ------------------------------------------------------------------------------------------------------------------------------
+  
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+👉 Sert à : 
+charger Vue.js
+rendre disponible l’objet Vue
+
+➡️ Sans lui :
+Vue.createApp(...)
+❌ ne marche pas
+
+----------------------------------------------------------------------
+
+🔹 2. Script dans le <body>
+<script>
+const app = Vue.createApp({...})
+app.mount("#app")
+</script>
+
+👉 Sert à :
+créer ton application
+définir ton comportement
+connecter Vue au HTML
+
+  ------------------------------------------------------------------
+🔹 🟡 data() → les DONNÉES
+data() {
+  return {
+    user: {
+      name: "John",
+      age: 16
+    }
+  }
+}
+
+  👉 Reconnaissance :
+toujours une fonction data()
+retourne un objet
+contient des variables
+
+👉 Rôle :
+
+stocker l’état de ton app
+
+  ---------------------------------------------------
+  🔹 🔵 methods → les ACTIONS
+methods: {
+  update(newAge) {
+    this.user.age = newAge
+  }
+}
+
+👉 Reconnaissance :
+objet methods
+contient des fonctions
+souvent utilisé avec @click
+
+  👉 Rôle :
+modifier les données / gérer les événements
+
+  ---------------------------------------------
+
+  🔹 🟣 computed → les CALCULS intelligents
+computed: {
+  status() {
+    return this.user.age > 18 ? "adult" : "minor"
+  }
+}
+
+👉 Reconnaissance :
+
+objet computed
+fonctions sans paramètres
+utilisent this
+
+👉 Rôle :
+
+calculer une valeur basée sur data
+
+
+  --------------------------------------------------------------------
+  🧠 4. app.mount("#app")
+app.mount("#app")
+
+👉 Reconnaissance :
+
+toujours à la fin
+prend un sélecteur CSS
+
+👉 Rôle :
+
+connecter Vue au HTML
+
+  -------------------------------------------------
+  En Vue 2 
+
+  <div id="app">
+  <p>{{ message }}</p>
+</div>
+new Vue({
+  el: "#app",
+  data: {
+    message: "Hello"
+  }
+})
