@@ -34,3 +34,17 @@ app.mount("#app")
 </html>
 
 👉 $emit permet à un composant enfant d’envoyer un événement au parent
+
+
+----------------------------------------
+
+const newMessage = "Hello from the child component!"
+
+this.$emit('updateMessage', newMessage)
+
+👉 Ici :
+
+'updateMessage' = nom de l’événement
+newMessage = valeur envoyée (payload)
+ENFANT :
+"J’envoie un événement appelé updateMessage avec une valeur"
